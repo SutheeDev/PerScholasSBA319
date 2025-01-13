@@ -1,4 +1,4 @@
-const review = [
+const starterReview = [
   {
     reviewId: 1,
     userId: 1,
@@ -160,4 +160,4 @@ const review = [
     date: "2024-02-07T01:52:18Z",
   },
 ];
-module.exports = review;
+module.exports = starterReview;

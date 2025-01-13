@@ -1,4 +1,4 @@
-const restaurant = [
+const starterRestaurant = [
   {
     restaurantId: 1,
     name: "Lemongrass Haven",
@@ -160,4 +160,4 @@ const restaurant = [
     reviews: [],
   },
 ];
-module.exports = restaurant;
+module.exports = starterRestaurant;

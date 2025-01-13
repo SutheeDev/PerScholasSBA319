@@ -1,4 +1,4 @@
-const user = [
+const starterUser = [
   {
     id: 1,
     username: "mledekker0",
@@ -140,4 +140,4 @@ const user = [
     favorite: [],
   },
 ];
-module.exports = user;
+module.exports = starterUser;
