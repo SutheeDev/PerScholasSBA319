@@ -13,10 +13,19 @@ const Restaurant = require("./models/restaurant");
 const starterReview = require("./config/seedReview");
 const Review = require("./models/review");
 
+// import routes
+const userRoute = require("./routes/userRoute");
+
+app.use(express.json());
+
+// Routes
+app.use("/api/users", userRoute);
+
 app.get("/", (req, res) => {
   res.send("Welcome!");
 });
 
+// Populate seeds
 app.get("/api/populateseeds", async (req, res) => {
   try {
     await User.deleteMany({});
@@ -29,6 +38,16 @@ app.get("/api/populateseeds", async (req, res) => {
   } catch (error) {
     console.log({ err: error.message });
   }
+});
+
+// Handle 404
+app.use((req, res) => {
+  res.status(404).send("Page not found");
+});
+
+// Error handling
+app.use((err, req, res, next) => {
+  res.status(err.status || 500).send("Something went wrong, try again later.");
 });
 
 app.listen(port, () => {
