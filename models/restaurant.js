@@ -2,14 +2,14 @@ const mongoose = require("mongoose");
 
 const restaurantSchema = new mongoose.Schema({
   name: {
-    type: string,
+    type: String,
     required: true,
   },
   cuisine: {
-    type: string,
+    type: String,
   },
   location: {
-    type: string,
+    type: String,
   },
   rating: {
     type: Number,
@@ -17,7 +17,7 @@ const restaurantSchema = new mongoose.Schema({
     max: 5,
   },
   reviews: {
-    type: [string],
+    type: [String],
   },
 });
 const Restaurant = mongoose.model("Restaurant", restaurantSchema);
