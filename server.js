@@ -19,7 +19,16 @@ app.get("/", (req, res) => {
 
 app.get("/api/populateseeds", async (req, res) => {
   try {
-  } catch (error) {}
+    await User.deleteMany({});
+    await Restaurant.deleteMany({});
+    await Review.deleteMany({});
+    await User.create(starterUser);
+    await Restaurant.create(starterRestaurant);
+    await Review.create(starterReview);
+    res.json(starterUser, starterRestaurant, starterReview);
+  } catch (error) {
+    console.log({ err: error.message });
+  }
 });
 
 app.listen(port, () => {
