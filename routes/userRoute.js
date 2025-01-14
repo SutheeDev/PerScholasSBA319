@@ -8,7 +8,17 @@ router.get("/", async (req, res) => {
     const allUsers = await User.find({});
     res.status(200).json(allUsers);
   } catch (error) {
-    res.status(500).json(`error : ${error.message}`);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get User By Id
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 });
 
