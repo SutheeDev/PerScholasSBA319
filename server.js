@@ -13,10 +13,10 @@ const Restaurant = require("./models/restaurant");
 const starterReview = require("./config/seedReview");
 const Review = require("./models/review");
 
+app.use(express.json());
+
 // import routes
 const userRoute = require("./routes/userRoute");
-
-app.use(express.json());
 
 // Routes
 app.use("/api/users", userRoute);
