@@ -25,13 +25,13 @@ router.post("/:id", async (req, res) => {
 });
 
 // getReviewsByUserId route
-router.post("/", async (req, res) => {
+router.get("/user/:userId", async (req, res) => {
   try {
-    const userId = req.body;
+    const userId = req.params;
     const userReviews = await Review.find(userId);
 
     if (!userReviews || userReviews.length === 0) {
-      return res.status(400).json("You have no review");
+      return res.status(404).json("You have no review");
     }
 
     res.status(200).json(userReviews);
@@ -39,5 +39,8 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// getReviewsByRestaurantId route
+// router.post("/");
 
 module.exports = router;
