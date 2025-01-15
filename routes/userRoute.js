@@ -16,6 +16,11 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
+
+    if (!user) {
+      return res.status(400).json("No user with this id!");
+    }
+
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -54,7 +59,7 @@ router.delete("/:id", async (req, res) => {
     const user = await User.findById(id);
 
     if (!user) {
-      res.status(400).json("No user with this id!");
+      return res.status(400).json("No user with this id!");
     }
 
     await User.findOneAndDelete(user);
