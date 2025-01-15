@@ -7,7 +7,7 @@ Welcome to SBA318, a Node.js, Express, and MongoDB CRUD API project developed as
 3. Utilize MongoDB indexes for efficient querying.
 4. Enforce data consistency with MongoDB validation rules.
 
-<br><br>
+<br>
 
 ## Features
 
@@ -29,7 +29,7 @@ Welcome to SBA318, a Node.js, Express, and MongoDB CRUD API project developed as
 - **POST** `/api/users` - Create a new user.
 - **DELETE** `/api/users/:id` - Delete a user.
 
-### Restaurabts Collection
+### Restaurants Collection
 
 - **GET** `/api/restaurants` - Retrieve all restaurants.
 - **GET** `/api/restaurants/:id` - Retrieve restaurant by id.
@@ -51,8 +51,8 @@ Welcome to SBA318, a Node.js, Express, and MongoDB CRUD API project developed as
 MongoDB validation ensures data consistency at the database level:
 
 - **Users**: Username, Email, and Password are required.
-- **Restaurants**: Name is required and rating is limit to 1 - 5.
-- **Reviews**: UserId, RestaurantID, and Comment are required.
+- **Restaurants**: Name is required and Rating is limit to 1 - 5.
+- **Reviews**: UserId, RestaurantId, and Comment are required.
 
 <br>
 
@@ -93,12 +93,11 @@ MongoDB validation ensures data consistency at the database level:
 ```json
 [
   {
-    "_id": "6785bc0310bf47aeadffc91e",
-    "userId": "1",
-    "restaurantId": "1",
-    "rating": 3.3,
-    "comment": "Service was slow",
-    "date": "2024-08-15T05:32:04.000Z",
+    "_id": "67872e4edf6995e1242429fb",
+    "userId": "6785cf454ecd8e8e9c01ab47",
+    "restaurantId": "6785bc0210bf47aeadffc8f9",
+    "comment": "The sevice was amazing",
+    "date": "2025-01-15T03:41:02.584Z",
     "__v": 0
   }
 ]
