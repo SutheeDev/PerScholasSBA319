@@ -41,6 +41,19 @@ router.get("/user/:userId", async (req, res) => {
 });
 
 // getReviewsByRestaurantId route
-// router.post("/");
+router.get("/restaurant/:restaurantId", async (req, res) => {
+  try {
+    const restaurantId = req.params;
+    const restaurantReviews = await Review.find(restaurantId);
+
+    if (!restaurantReviews || restaurantReviews.length === 0) {
+      return res.status(404).json("This restaurant does not have review");
+    }
+
+    res.status(200).json(restaurantReviews);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 module.exports = router;
