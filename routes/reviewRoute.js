@@ -67,23 +67,29 @@ router.get("/restaurant/:restaurantId", async (req, res) => {
 });
 
 // updateReview route - userId + reviewId & update body
-// router.put("/:userId/:reviewId", async (req, res) => {
-//   try {
-//     const { userId, reviewId } = req.params;
-//     const updateData = req.body;
+router.patch("/:userId/:reviewId", async (req, res) => {
+  console.log("hey");
+  try {
+    const { userId, reviewId } = req.params;
+    const updateData = req.body;
 
-//     const review = await Review.findOne({ _id: reviewId, userId });
+    const review = await Review.findOne({ _id: reviewId, userId });
 
-//     if (!review) {
-//       return res.status(404).json("Review not found");
-//     }
+    if (!review) {
+      return res.status(404).json("Review not found");
+    }
 
-//     const updatedReview = await Review.findOneAndUpdate(reviewId, updateData);
-
-//     res.status(200).json(updatedReview);
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// });
+    const updatedReview = await Review.findOneAndUpdate(
+      { _id: reviewId },
+      updateData,
+      {
+        new: true,
+      }
+    );
+    res.status(200).json(updatedReview);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 module.exports = router;
