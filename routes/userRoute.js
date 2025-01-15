@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 
-// Get All Users Route
+// getAllUsers Route
 router.get("/", async (req, res) => {
   try {
     const allUsers = await User.find({});
@@ -12,7 +12,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get User By Id
+// getUserById
+// Need userId in the params
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -27,7 +28,8 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Create Users Route
+// createUser Route
+// Need to pass username, email, and password in the body
 router.post("/", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -53,6 +55,7 @@ router.post("/", async (req, res) => {
 });
 
 // Delete User
+// Need userId in the params
 router.delete("/:id", async (req, res) => {
   try {
     const id = req.params.id;

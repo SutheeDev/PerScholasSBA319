@@ -35,6 +35,7 @@ router.post("/:id", async (req, res) => {
 });
 
 // getReviewsByUserId route
+// Need userId in the params
 router.get("/user/:userId", async (req, res) => {
   try {
     const userId = req.params;
@@ -51,6 +52,7 @@ router.get("/user/:userId", async (req, res) => {
 });
 
 // getReviewsByRestaurantId route
+// Need restaurantId in the params
 router.get("/restaurant/:restaurantId", async (req, res) => {
   try {
     const restaurantId = req.params;
@@ -66,7 +68,9 @@ router.get("/restaurant/:restaurantId", async (req, res) => {
   }
 });
 
-// updateReview route - userId + reviewId & update body
+// updateReview route
+// Need userId and reviewId in the params
+// Pass updated body ("rating", "comment")
 router.patch("/:userId/:reviewId", async (req, res) => {
   try {
     const { userId, reviewId } = req.params;
@@ -91,7 +95,8 @@ router.patch("/:userId/:reviewId", async (req, res) => {
   }
 });
 
-// deleteReview route - userId + reviewId
+// deleteReview route
+// Need userId and reviewId in the params
 router.delete("/:userId/:reviewId", async (req, res) => {
   try {
     const { userId, reviewId } = req.params;

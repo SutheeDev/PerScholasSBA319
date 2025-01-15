@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
 });
 
 // getRestaurantById route
+// Need restaurantId in the params
 router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
