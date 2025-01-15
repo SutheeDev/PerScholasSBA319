@@ -3,6 +3,16 @@ const router = express.Router();
 const Review = require("../models/review");
 const User = require("../models/user");
 
+// getAllReviews route
+router.get("/", async (req, res) => {
+  try {
+    const allReviews = await Review.find({});
+    res.status(200).json(allReviews);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // createReview route
 router.post("/:id", async (req, res) => {
   try {
@@ -55,5 +65,25 @@ router.get("/restaurant/:restaurantId", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// updateReview route - userId + reviewId & update body
+// router.put("/:userId/:reviewId", async (req, res) => {
+//   try {
+//     const { userId, reviewId } = req.params;
+//     const updateData = req.body;
+
+//     const review = await Review.findOne({ _id: reviewId, userId });
+
+//     if (!review) {
+//       return res.status(404).json("Review not found");
+//     }
+
+//     const updatedReview = await Review.findOneAndUpdate(reviewId, updateData);
+
+//     res.status(200).json(updatedReview);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
 module.exports = router;
