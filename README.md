@@ -1,6 +1,6 @@
 # Per Scholas SBA319
 
-Welcome to SBA318, a Node.js, Express, and MongoDB CRUD API project developed as part of a Per Scholas assignment to demonstrate multiple key objectives, including:
+Welcome to SBA319, a Node.js, Express, and MongoDB CRUD API project developed as part of a Per Scholas assignment to demonstrate multiple key objectives, including:
 
 1. Create a server application with Node.js, Express, and MongoDB.
 2. Implement a CRUD API using Express and MongoDB.
