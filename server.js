@@ -18,10 +18,12 @@ app.use(express.json());
 // import routes
 const userRoute = require("./routes/userRoute");
 const restaurantRoute = require("./routes/restaurantRoute");
+const reviewRoute = require("./routes/reviewRoute");
 
 // Routes
 app.use("/api/users", userRoute);
 app.use("/api/restaurants", restaurantRoute);
+app.use("/api/reviews", reviewRoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome!");

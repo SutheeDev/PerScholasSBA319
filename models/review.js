@@ -3,9 +3,11 @@ const mongoose = require("mongoose");
 const reviewSchema = new mongoose.Schema({
   userId: {
     type: String,
+    required: true,
   },
   restaurantId: {
     type: String,
+    required: true,
   },
   rating: {
     type: Number,
