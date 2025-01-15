@@ -68,7 +68,6 @@ router.get("/restaurant/:restaurantId", async (req, res) => {
 
 // updateReview route - userId + reviewId & update body
 router.patch("/:userId/:reviewId", async (req, res) => {
-  console.log("hey");
   try {
     const { userId, reviewId } = req.params;
     const updateData = req.body;
@@ -92,4 +91,21 @@ router.patch("/:userId/:reviewId", async (req, res) => {
   }
 });
 
+// deleteReview route - userId + reviewId
+router.delete("/:userId/:reviewId", async (req, res) => {
+  try {
+    const { userId, reviewId } = req.params;
+
+    const review = await Review.findOne({ _id: reviewId, userId });
+
+    if (!review) {
+      return res.status(404).json("Review not found");
+    }
+
+    const deletedReview = await Review.findOneAndDelete(review);
+    res.status(200).json(deletedReview);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 module.exports = router;
