@@ -4,10 +4,14 @@ const reviewSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true,
+    // Frequently used (e.g., getReviewsByUserId, updateReview, and deleteReview)
+    index: true,
   },
   restaurantId: {
     type: String,
     required: true,
+    // Frequently used (e.g., getRestaurantById and getReviewsByRestaurantId)
+    index: true,
   },
   rating: {
     type: Number,
